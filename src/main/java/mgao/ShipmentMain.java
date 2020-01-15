@@ -6,13 +6,13 @@ public class ShipmentMain {
     public static void main(String[] args) {
         Status s1 = Status.builder()
                 .stage("PickedUp")
-                .value(1).build();
+                .value(CompleteValue.COMPLETED.getValue()).build();
         Status s2 = Status.builder()
                 .stage("InTransit")
-                .value(1).build();
+                .value(CompleteValue.COMPLETED.getValue()).build();
         Status s3 = Status.builder()
                 .stage("Delivered")
-                .value(0).build();
+                .value(CompleteValue.UNCOMPLETED.getValue()).build();
         List<Status> st1 = List.of(s3, s2, s1);
 
         List<Status> st2 = List.of(s3, s2, s1);
@@ -30,13 +30,13 @@ public class ShipmentMain {
     static Track summaryStatus(List<Track> trs) {
         Status s1 = Status.builder()
                 .stage("Delivered")
-                .value(0).build();
+                .value(CompleteValue.UNCOMPLETED.getValue()).build();
         Status s2 = Status.builder()
                 .stage("InTransit")
-                .value(0).build();
+                .value(CompleteValue.UNCOMPLETED.getValue()).build();
         Status s3 = Status.builder()
                 .stage("PickedUp")
-                .value(0).build();
+                .value(CompleteValue.UNCOMPLETED.getValue()).build();
         int length = trs.size();
 
         trs.forEach( tr ->  {
